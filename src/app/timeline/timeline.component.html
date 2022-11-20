@@ -1,1 +1,9 @@
-<p>timeline works!</p>
+<p *ngIf="isLoading">Loading data...</p>
+<div *ngIf="!isLoading">
+  <div *ngFor="let toot of tootList">
+    {{toot.account.display_name}} ({{toot.account.acct}})<br>
+    {{toot.created_at}}<br>
+    <div [innerHTML]="toot.content"></div>
+    <hr>
+  </div>
+</div>

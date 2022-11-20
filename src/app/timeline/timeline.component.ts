@@ -8,7 +8,7 @@ import { TimeLineService } from '../timeline.service';
   styleUrls: ['./timeline.component.css']
 })
 export class TimeLineComponent implements OnInit, OnDestroy {
-  postsList!: string[];
+  tootList!: any[];
 
   isLoading: boolean = false;
   private postsListSubscription!: Subscription;
@@ -17,7 +17,7 @@ export class TimeLineComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.postsListSubscription = this.timeLineService.postsListChanged.subscribe(posts => {
-      this.postsList = posts;
+      this.tootList = posts;
       this.isLoading = false;
     });
     this.isLoading = true;
